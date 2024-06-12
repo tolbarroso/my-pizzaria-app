@@ -1,16 +1,20 @@
-export const fetchStates = async () => {
+const getStates = async () => {
     const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
     if (!response.ok) {
       throw new Error('Erro ao buscar estados');
     }
-    return await response.json();
+    const data = await response.json();
+    return data;
   };
   
-  export const fetchMunicipalities = async (stateId) => {
+  const getMunicipalities = async (stateId) => {
     const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${stateId}/municipios`);
     if (!response.ok) {
       throw new Error('Erro ao buscar municípios');
     }
-    return await response.json();
+    const data = await response.json();
+    return data;
   };
+  
+  export { getStates, getMunicipalities };
   

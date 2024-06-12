@@ -1,25 +1,21 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDnE5ycGneewLVrdlSSAokfJ-e6UmVmhgM",
   authDomain: "my-pizzaria-app.firebaseapp.com",
   projectId: "my-pizzaria-app",
-  storageBucket: "YOUR_FIREBASE_STORAGE_BUCKET", // Atualize com o valor correto
+  storageBucket: "my-pizzaria-app.appspot.com",
   messagingSenderId: "871135678515",
-  appId: "YOUR_FIREBASE_APP_ID", // Atualize com o valor correto
-  measurementId: "YOUR_FIREBASE_MEASUREMENT_ID" // Atualize com o valor correto
+  appId: "1:871135678515:web:98b59cef6eb7daca50d346",
+  measurementId: "G-V31PM2148L"
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log('logged in');
-  } else {
-    console.log('no user');
-  }
-});
-
-export { auth, firebaseApp };
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
